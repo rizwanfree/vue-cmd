@@ -1,10 +1,13 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, inject } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
 const isOpen = ref(true);
 
+const agent = inject('agent');
+
+console.log(agent);
 const toggleSidebar = () => {
   isOpen.value = !isOpen.value;
 };
@@ -41,7 +44,7 @@ const toggleDropdown = (index: number) => {
   <div :class="`bg-gray-500 text-white h-screen flex flex-col transition-width duration-300 ${isOpen ? 'w-64' : 'w-16'}`">
     <!-- Logo Area -->
     <div class="flex items-center justify-between p-5 border-b ">
-      <span class="font-bold text-lg" v-if="isOpen">MaritimeApp</span>
+      <span class="font-bold text-lg" v-if="isOpen && agent"> {{agent.company_name}} </span>
 <!--      <button @click="toggleSidebar" class="p-1 hover:bg-blue-800 rounded">-->
 <!--        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">-->
 <!--          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>-->
