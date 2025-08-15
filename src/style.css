@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@import 'primeicons/primeicons.css';
+
+@layer base {
+  body {
+    @apply font-sans;
+    font-family: "Huninn", sans-serif;
+  }
+}
